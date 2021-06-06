@@ -1,0 +1,26 @@
+.container {
+    color: red;
+}
+#name {
+    color: pink;
+}
+
+#click-btn {
+    background-color: blue;
+    color: white;
+    padding: 12px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-color: green;
+    border-radius: 10px;
+}
+
+/* table, th, td {
+    border: 1px solid yellowgreen;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: right;
+} */

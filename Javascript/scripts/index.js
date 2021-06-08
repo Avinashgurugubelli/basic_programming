@@ -19,36 +19,81 @@
 // xyz = 5000;
 // console.log(xyz);
 
-var m = 10;
-console.log(m); // 10
-{
-    console.log(m); // 10
-    var m = 20;
-    console.log(m); // 20
+// var m = 10;
+// console.log(m); // 10
+// {
+//     console.log(m); // 10
+//     var m = 20;
+//     console.log(m); // 20
+// }
+// console.log(m); //10
+
+// type error
+// const c = 100;
+// c = 200;
+
+// Syntax error
+// let l = 300;
+// let l = 500;
+
+// const c = 300;
+// const c = 500;
+
+// reference error
+// console.log(l1);
+// let l1 = 500;
+// console.log(a); 
+// const a = 5;
+
+
+// closure
+// function parent () {
+//     var v1 = 500;
+//     function child () {
+//         var v2 = 900
+//         console.log(v1);
+//     }
+//     return child;
+//     // child();
+// }
+
+// let p = parent();
+// p();
+
+let f =  function child () {
+    var v2 = 900
+    console.log(v1);
 }
-console.log(m); //10
 
-
-
-
-
-
-function printUserDetails(name, age, phone) {
-    console.log(name, age, phone)
-    isMajor(age)
-
+// function statement / function expression
+function f1(xyz) {
+    xyz();
+    // console.log(xyz()); // 1000;
 }
 
-function isMajor(age) {
-    if(age >= 18) {
-        console.log("User is eligible to vote");
-    }
-    else {
-        console.log("User is not eligible to vote");
-    }
-}
+// f1(f);
+
+//Anonymous functions
+//
 
 
-// printUserDetails("Avinash", "26", "45445454545");
+
+// function printUserDetails(name, age, phone) {
+//     console.log(name, age, phone)
+//     isMajor(age)
+
+// }
+
+// function isMajor(age) {
+//     if (age >= 18) {
+//         console.log("User is eligible to vote");
+//     }
+//     else {
+//         console.log("User is not eligible to vote");
+//     }
+// }
+
+
+// printUserDetails("(Avinash", "26", "45445454545");
 
 // printUserDetails("Jack", "10");

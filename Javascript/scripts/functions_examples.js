@@ -49,3 +49,30 @@ function abc(param1, param2) {
 }
 
 abc(1, 2); // here 1, 2 called arguments
+
+
+function isMajor(age) {
+    if (age >= 18) {
+        console.log("User is eligible to vote");
+    }
+    else if(age > 100) {
+        console.log("sdsds")
+    }
+    else {
+        console.log("User is not eligible to vote");
+    }
+}
+
+function isMajor(age) {
+    switch(age) {
+        case 18:
+            console.log("sdsdsd");
+            return "Valid age";
+        case 100:
+            console.log("sdsdsd")
+            break;
+        default:
+            // fdfdfd
+            break;
+    }
+}

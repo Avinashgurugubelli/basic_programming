@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- <script src="./scripts/index.js"></script> -->
     <!-- <script src="./scripts/functions_examples.js"></script> -->
-    <script src="./scripts/timer_example.js"></script>
+    <script src="./scripts/debounce.js"></script>
 
 </head>
 
 <body>
-
+   
     <!-- <div class="container">
         <h1>Hi Tarun</h1>
         <h2>Hi Tarun</h2>
@@ -67,10 +67,12 @@
         </div>
     </div> -->
 
-    <h1 id="name"></h1>
+    <!-- <h1 id="name"></h1>
     <button onclick="clickMe()">
         Click me
-    </button>
+    </button> -->
+
+    <input type="text" name="search" id="search-txt" placeholder="Search..." style="padding: 0.5rem; width: 500px;" onkeyup="onKeyUp(event.target.value)">
     
 </body>
 

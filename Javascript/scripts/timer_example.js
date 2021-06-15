@@ -14,11 +14,48 @@ function perform() {
     let endTime = startTime;
 
     // delay logic
-    while(endTime >= startTime + 10000) {
+    while (endTime >= startTime + 10000) {
         endTime = new Date().getTime;
     }
-    
+
     console.log("My delay completed.");
+
+
+    function tick() {
+
+        console.log('Tick function called');
+
+        function handler() {
+            console.log("First tick....");
+        }
+
+        // for every 1 sec.
+        t1 = setInterval(handler, 1000);
+
+        // for every 5 sec
+        setInterval(() => {
+            console.log("Second tick....");
+            clearT1Timer();
+        }, 5000);
+
+        function clearT1Timer () {
+            console.log("timer t1 cleared")
+            clearInterval(t1);
+        }
+
+        // delay logic
+        while (endTime >= startTime + 10000) {
+            endTime = new Date().getTime;
+        }
+        console.log("second delay completed.");
+
+        // clearT1Timer();
+
+    }
+
+
+
+    tick();
 
     // output
     // 1, >>>>>>>>

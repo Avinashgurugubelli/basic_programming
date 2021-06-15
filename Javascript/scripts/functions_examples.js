@@ -76,3 +76,17 @@ function isMajor(age) {
             break;
     }
 }
+
+
+function xyz(...params) {
+    console.log(params);
+    // console.log("Value at oth index: " + params[0]);
+    // console.log("Value at 1th index: " + params[1]);
+    // console.log("Value at 2th index: " + params[2]);
+
+    for (i = 0; i < params.length; i++) {
+        console.log("Value at " + i + "th index: " + params[i]);
+    }
+}
+
+xyz(1, 2, 3);

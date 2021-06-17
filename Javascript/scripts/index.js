@@ -97,3 +97,49 @@ function f1(xyz) {
 // printUserDetails("(Avinash", "26", "45445454545");
 
 // printUserDetails("Jack", "10");
+
+
+let person = {
+    name: "Avinash",
+    age: 25,
+    skills: ["Python", "JS"],
+    address: {
+        streetName: "MVP colony",
+        city: "VSKP",
+        state: "AP"
+    },
+    isResident: true
+}
+
+// accessing the value of name property from the above person OBJ using dot operator
+console.log(person.name);
+
+// accessing the value of name property from the above person OBJ
+console.log(person["name"]);
+
+// get all keys in a obj
+let personObjKeys = Object.keys(person);
+console.log(personObjKeys);
+
+// dynamically  accessing the value using keys 
+Object.keys(person).forEach(function(key) {
+    console.log("Key: "+ key + " value: "+ person[key]);
+});
+
+// adding new property
+person["phoneNumber"] = 418732118;
+console.log(person);
+
+/**
+ * data is lost when the browser tab is closed
+ */
+sessionStorage.setItem("AuthToken", "dssddfsdfdsfsdfsdfsdfdsfsdfsdfsdfsdf");
+sessionStorage.setItem("AuthToken", "AAADAADADAD");
+console.log(sessionStorage.getItem("AuthToken"));
+
+/**
+ * The localStorage object stores data with no expiration date. 
+ * The data will not be deleted when the browser is closed, and will be available the next day, week, or year
+ */
+localStorage.setItem("UserRole", "ADMIN");
+console.log(sessionStorage.getItem("AuthToken"))

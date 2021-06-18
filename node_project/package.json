@@ -4,7 +4,7 @@
   "description": "Sample Node JS project",
   "main": "dist/app.js",
   "scripts": {
-    "test": "test",
+    "test": "",
     "start": "tsc && node dist/app.js"
   },
   "author": "",
@@ -17,6 +17,7 @@
     "typescript": "^4.3.2"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "lodash": "^4.17.21"
   }
 }

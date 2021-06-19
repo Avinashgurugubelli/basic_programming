@@ -142,4 +142,4 @@ console.log(sessionStorage.getItem("AuthToken"));
  * The data will not be deleted when the browser is closed, and will be available the next day, week, or year
  */
 localStorage.setItem("UserRole", "ADMIN");
-console.log(sessionStorage.getItem("AuthToken"))
+console.log(sessionStorage.getItem("AuthToken"));

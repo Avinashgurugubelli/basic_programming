@@ -5,7 +5,9 @@
   "main": "dist/app.js",
   "scripts": {
     "test": "",
-    "start": "tsc && node dist/app.js"
+    "start": "tsc && node dist/app.js",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
   },
   "author": "",
   "license": "ISC",

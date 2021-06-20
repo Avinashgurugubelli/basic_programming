@@ -1,3 +1,4 @@
+
 // Class definition or class creation
 export class Employee {
 
@@ -15,17 +16,17 @@ export class Employee {
     }
     
     // can only accessible within class 'Employee'
-    private printToConsole() {
+    private printToConsole(): void {
         console.log(this.id, this.name, this.dob, this.isActive);
     }
 
     // can be accessible within the class and outside as well.
-    public printDetails() {
+    public printDetails(): void {
         this.printToConsole();
     }
 
     // can only accessible within class 'Employee' and its subclasses
-    protected EmployeeType() {
+    protected EmployeeType(): void {
 
     }
 }

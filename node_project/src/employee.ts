@@ -1,20 +1,93 @@
+import { Skill } from './models/skills';
 
 // Class definition or class creation
 export class Employee {
 
     // Properties
     private id: number;
-    private name: string ;
+    private _name: string;
     private dob: Date;
     private isActive: boolean;
+    private _employeeSkills: Skill[];
+    private _reportees: Employee[] = [];
 
-    constructor(id: number, name: string, dob: Date, isActive: boolean) {
+
+    public get name(): string {
+        return this._name;
+    }
+
+    // Getter to _employeeSkills
+    // public access specifier is optional, because by default it is public
+    public get employeeSkills(): Skill[] {
+        return this._employeeSkills;
+    }
+
+    // Setter to _employeeSkills
+    // public access specifier is optional, because by default it is public
+    public set employeeSkills(skills: Skill[]) {
+        this.addMultipleSkill(skills);
+    }
+
+    get reportees(): Employee[] {
+        return this._reportees;
+    }
+
+    private isExists(id: number): boolean {
+        for (let index = 0; index < this.reportees.length; index++) {
+            if (this.reportees[index].id === id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    set reportees(employees: Employee[]) {
+
+        // for each loop logic
+        employees.forEach((emp: Employee) => {
+            if ((emp.id !== this.id) && !this.isExists(emp.id)) {
+                this._reportees.push(emp);
+            }
+        });
+
+        // Alternate approach - for loop
+        // for (let index = 0; index < employees.length; index++) {
+        //     if(employees[index].id !== this.id) {
+        //         this._reportees.push(employees[index]);
+        //     }
+        // }
+    }
+
+
+    constructor(id: number, name: string, dob: Date, isActive: boolean, skills: Skill[]) {
         this.id = id;
-        this.name = name;
+        this._name = name;
         this.dob = dob;
         this.isActive = isActive;
+        /**
+         * Aggregation -> HAS A Relation ship
+         * ex: Employee HAS A skills
+         * ex: Employee HAS A Bank account
+         * ex: Car HAS A music player
+         */
+        this._employeeSkills = skills;
     }
-    
+
+    /**
+     *
+     * Association: USES-A relationship
+     * ex: Employee USES an skill ob to add skillSet of employee.
+     * ex: ATM USES an Account
+     */
+    public addSkill(skill: Skill) {
+        this._employeeSkills.push(skill);
+    }
+
+
+    private addMultipleSkill(skills: Skill[]) {
+        this._employeeSkills = [...this._employeeSkills, ...skills]
+    }
+
     // can only accessible within class 'Employee'
     private printToConsole(): void {
         console.log(this.id, this.name, this.dob, this.isActive);
@@ -31,9 +104,27 @@ export class Employee {
     }
 }
 
+let skill1 = new Skill("Typescript", 3, 5, true);
+let skill2 = new Skill("C#", 5, 4, true);
+let skill3 = new Skill("JAVA", 3, 5, true);
+let skill4 = new Skill("GOLANG", 3, 5, true);
 
-let e = new Employee(10001, "Avinash", new Date(), true);
-let e1 = new Employee(10002, "Avinash", new Date(), true);
+// reportee
+let e = new Employee(10001, "Avinash", new Date(), true, [skill1, skill2, skill3]);
 
-e.printDetails();
-e1.printDetails();
+// Manager
+let e1 = new Employee(10002, "Jack", new Date(), true, [skill1]);
+
+
+e1.reportees = [e, e1, e];
+
+console.log("E reportiess: " + JSON.stringify(e.reportees));
+
+console.log("E1 reportiess: " + JSON.stringify(e1.reportees));
+
+
+// e1.addSkill(skill4);
+// e1.employeeSkills = [skill2, skill3];
+// console.log("Name: " + e.name);
+// e.printDetails();
+// e1.printDetails();

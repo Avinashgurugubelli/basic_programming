@@ -12,6 +12,14 @@ export class Employee {
     private _reportees: Employee[] = [];
 
 
+
+    /**
+     * In TypeScript, there are two supported methods getter and setter to access and set the class members. 
+     * The greater method control over how a member is accessed on each object.
+     * Methods of the typescript accessor property:
+     * getter: This method comes when you want to access any property of an object.
+     * setter: This method comes when you want to change any property of an object.
+     */
     public get name(): string {
         return this._name;
     }
@@ -115,9 +123,10 @@ let e = new Employee(10001, "Avinash", new Date(), true, [skill1, skill2, skill3
 // Manager
 let e1 = new Employee(10002, "Jack", new Date(), true, [skill1]);
 
-
+// calling setters
 e1.reportees = [e, e1, e];
 
+// calling getters
 console.log("E reportiess: " + JSON.stringify(e.reportees));
 
 console.log("E1 reportiess: " + JSON.stringify(e1.reportees));

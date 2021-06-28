@@ -1,3 +1,4 @@
+import { FileUtility } from './util/file-utility';
 import { EmployeeModel, IEmployee } from './models/employee_model';
 import { Person, Address } from './person';
 
@@ -36,7 +37,36 @@ export class EmployeeWithInterfaceExample extends Person implements IEmployee {
     constructor(employee: EmployeeModel, address: Address) {
         super(address);
         this.employee = employee;
-       
+
+    }
+
+    // writing details to file
+    public writeDetailsToFile() {
+        const filePath: string = "./data/employees.json";
+        if (FileUtility.fileExists(filePath)) {
+            FileUtility.readPromise(filePath).then((existingData: string) => {
+                let employeesList: EmployeeModel[] = existingData ? JSON.parse(existingData) : [];
+                employeesList.push(this.employee);
+
+                // writing file -> adding existing along with new employee info
+                FileUtility.writePromise(filePath, JSON.stringify(employeesList), false)
+                    .then((val) => {
+                        if (val) {
+                            console.log("Employee Info written to file successfully!!")
+                        }
+                    });
+            });
+        }
+        else {
+            FileUtility.writePromise(filePath, JSON.stringify([this.employee]), false)
+                .then((val) => {
+                    if (val) {
+                        console.log("Employee Info written to file successfully!!")
+                    }
+                });
+        }
+
+
     }
 
     printDetails() {
@@ -46,11 +76,9 @@ export class EmployeeWithInterfaceExample extends Person implements IEmployee {
 
     // Method with return value. returns EmployeeModel
     getDetails(): EmployeeModel {
-       return this.employee;
+        return this.employee;
     }
 
-
-    
 }
 
 // Object creation
@@ -68,3 +96,4 @@ let e = new EmployeeWithInterfaceExample({
     streetName: "sdsdsdsd"
 });
 
+e.writeDetailsToFile();

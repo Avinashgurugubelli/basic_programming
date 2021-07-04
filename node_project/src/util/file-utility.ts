@@ -3,11 +3,11 @@ import path from 'path';
 
 export class FileUtility {
 
-    public static writeSync(filePath: string, data: string | NodeJS.ArrayBufferView) {
+    public static writeSync(filePath: string, data: string) {
         let isFileExists: boolean = fs.existsSync(filePath);
         try {
             if (isFileExists) {
-                fs.appendFileSync(filePath, data.toString(), 'utf8');
+                fs.appendFileSync(filePath, data, 'utf8');
             }
             else {
                 this.createDir(filePath);
@@ -23,7 +23,7 @@ export class FileUtility {
         let isFileExists: boolean = fs.existsSync(filePath);
         try {
             if (isFileExists) {
-                fs.appendFile(filePath, data.toString(), (err) => {
+                fs.appendFile(filePath, data, (err) => {
                     if (err) {
                         console.log(err);
                     }
@@ -139,7 +139,7 @@ export class FileUtility {
         if (!fs.existsSync(dirName)) {
             fs.mkdirSync(dirName);
         }
-    }
+    }   
 
     public static fileExists(filePath: string): boolean {
         return fs.existsSync(filePath);
@@ -147,7 +147,7 @@ export class FileUtility {
 
 }
 
-// FileOperations.write("./data/sample.txt", "Hey");
+// FileUtility.writeSync("./data/test.txt", "Hello World");
 // console.log(FileOperations.read("./data/sample.txt"))
 
 class FileOperatorsTester {
@@ -170,9 +170,9 @@ class FileOperatorsTester {
 
     public async writeToFile(data: string): Promise<boolean> {
         try {
-            console.log("file writing started ")
+            console.log("file writing started ");
             let flag: boolean = await FileUtility.writePromise(this.filePath, data);
-            console.log("File writing completed.")
+            console.log("File writing completed.");
             return flag;
         }
         catch (err) {
@@ -185,6 +185,6 @@ class FileOperatorsTester {
     }
 }
 
-// const test = new FileOperatorsTester("./data/sample.txt");
-// test.writeAndRead("I am Avinash, Welcome to Node JS programming.")
+const test = new FileOperatorsTester("./data/sample.txt");
+test.writeAndRead("I am Avinash, Welcome to Node JS programming.")
 

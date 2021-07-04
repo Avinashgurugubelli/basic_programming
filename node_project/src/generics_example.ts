@@ -20,7 +20,7 @@ import { Skill } from './models/skills';
  */
 
 // Generic interface
-interface dynamicKeyInterface<T> {
+export interface DynamicKeyInterface<T> {
     [key: string]: T;
 }
 
@@ -31,7 +31,7 @@ interface IPerson {
 
 interface IStudent extends IPerson {
     section: string;
-    marks?: dynamicKeyInterface<number>;
+    marks?: DynamicKeyInterface<number>;
 }
 
 
@@ -74,7 +74,7 @@ class Student extends Person<IStudent> {
         this.details = details;
     }
 
-    addMarks(marks: dynamicKeyInterface<number>) {
+    addMarks(marks: DynamicKeyInterface<number>) {
         this.details.marks = {...this.details.marks, ...marks};
     }
 }

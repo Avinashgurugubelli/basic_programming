@@ -13,11 +13,11 @@ export class EmailClient {
             }
         }).then((response: AxiosResponse<EmailResponse[]>) => {
             console.log("Email sent successfully, refer below for response: ");
-            console.log(response);
+            console.log(response.data);
         }).catch((error: any) => {
             console.log("Error occurred while sending Email, refer below error details");
             console.error(error);
-        })
+        });
     }
 
 }

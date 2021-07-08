@@ -9,7 +9,8 @@
     "watch": "nodemon --inspect dist/app.js",
     "build": "tsc --build",
     "clean": "tsc --build --clean",
-    "start:api": "nodemon ./src/api/api_server.ts"
+    "start:api": "nodemon ./src/api/api_server.ts",
+    "lint": "tslint"
   },
   "author": "",
   "license": "ISC",

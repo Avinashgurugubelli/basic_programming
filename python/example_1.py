@@ -1,6 +1,13 @@
 # To print to console
 from typing import Tuple
 
+# from package_example.arithmetic_operators.operators import add
+
+from package_example import add
+
+print(add(2,3))
+
+print(add(3,3))
 
 print("Hello world!")
 

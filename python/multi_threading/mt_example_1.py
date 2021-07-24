@@ -42,8 +42,8 @@ def call_fun_using_threads():
         t.start()
         threads.append(t)
 
-    for thread in threads:
-        thread.join()
+    # for thread in threads:
+    #     thread.join()
 
     end_time = time.perf_counter()
     actual_time = round(end_time - start_time, 2)

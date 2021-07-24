@@ -1,4 +1,4 @@
-def xyz(x:int = None):
+def xyz(x: int = None):
     try:
         if x < 0:
             raise Exception("Only Positive numbers allowed")
@@ -15,4 +15,24 @@ def xyz(x:int = None):
 # xyz(10)
 # xyz(-20)
 # xyz(0)
-xyz("sdsd")
+# xyz("sdsd")
+
+# LIST comprehension
+
+
+names = ["a", "b", "c", "d"]
+
+new_names = []
+
+# for name in names:
+#     if "a" not in name:
+#         new_names.append(name)
+
+# print(new_names)
+
+# The same above thing (extracting new names) can be done using list comprehension
+# List comprehension: [expression for item in [iteratable list] if condition]
+
+new_names = [name for name in names if name != "a"]
+
+print(new_names)

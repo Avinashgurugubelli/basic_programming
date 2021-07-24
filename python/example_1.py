@@ -126,8 +126,8 @@ else:
 #     print(ele)
 
 
-num = 1
-while num < 6:
-    print(num)
-    num = num+1
+# num = 1
+# while num < 6:
+#     print(num)
+#     num = num+1
 

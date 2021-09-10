@@ -15,8 +15,6 @@ class EmployeeBluePrint(ABC):
     def print_details(self):
         pass
 
-
-
 class Skill:
     def __init__(self, name: str, proficiency_level: int, last_used: int) -> None:
         self.name = name
@@ -25,7 +23,6 @@ class Skill:
 
     def __str__(self) -> str:
         return "{skill: {name: {}, proficiency_level: {}, last_used: {}}}".format(self.name, str(self.proficiency_level, self.last_used))
-
 
 
 class EmployeeBase(EmployeeBluePrint):

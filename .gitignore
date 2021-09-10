@@ -4,3 +4,5 @@ node_modules
 /node_project/data
 .venv
 __pycache__
+/python/wheel_pkg_example/t-calculator/T_basic_calculator.egg-info
+/python/wheel_pkg_example/t-calculator/dist
